@@ -11,11 +11,7 @@ export const Add = () => {
 
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`,
             {
-                method: 'GET',
-                headers: new Headers({
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://api.themoviedb.org/3/',
-                })
+                mode: 'cors'
             })
             .then(res => res.json())
             .then(data => {
